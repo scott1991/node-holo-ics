@@ -1,0 +1,12 @@
+{
+  "apiUrl":{
+    "holo-All":"https://schedule.hololive.tv/api/list/1",
+    "hololiveJP":"https://schedule.hololive.tv/api/list/2",
+    "hololiveEN":"https://schedule.hololive.tv/api/list/8",
+    "hololiveENJP":"https://schedule.hololive.tv/api/list/7",
+    "hololiveID":"https://schedule.hololive.tv/api/list/6",
+    "holostar-All":"https://schedule.hololive.tv/api/list/10",
+    "holostarEN":"https://schedule.hololive.tv/api/list/9",
+    "holostarJP":"https://schedule.hololive.tv/api/list/3"
+  }
+}
