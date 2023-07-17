@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lokijs": "^1.5.12"
+    "date-fns": "^2.30.0",
+    "ics": "^3.2.0",
+    "lokijs": "^1.5.12",
+    "node-cron": "^3.0.2",
+    "node-fetch": "^3.3.1"
   }
 }
