@@ -28,13 +28,15 @@ export function prepareEvents(videoList) {
     let categories = [];
     const regex = /#[^\s#]+/g;
     categories = video.title.match(regex);
+    const platformsCollection = getCollection('platforms');
+    const platform = platformsCollection.findOne({ id: video.platformType }) ;
     const event = {
       start: format(new Date(video.datetime), 'yyyy,MM,dd,HH,mm').split(',').map(Number),
       duration: { hours: 2 }, // we don't know how long. set to 2hr
       title: video.name, // will fill in summery
       description: video.title.replace(/\s/g, ' '), // use replace to make safe string
       url: video.url,
-      location: video.platformType === 1 ? 'Youtube' : 'Twitch', 
+      location: platform ? platform.name : ' ',
       attendees: attendees,
       organizer: {
         name: video.name,

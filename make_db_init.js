@@ -2,15 +2,15 @@ import Loki from 'lokijs';
 import fs from 'fs'
 
 
-var db = new Loki('db.lokidb',{
+var db = new Loki('db.lokidb', {
   autoload: true,
-  autoloadCallback : databaseInitialize,
+  autoloadCallback: databaseInitialize,
 });
 
 
 function databaseInitialize() {
-  collectionInitialize("talentsIcon") ;
-  collectionInitialize("platforms").insert( [{ "0": "Twitch" },{ "1": "Youtube" }]);
+  collectionInitialize("talentsIcon");
+  collectionInitialize("platforms").insert([{ "id": 0, "name": "Twitch" }, { "id": 1, "name": "Youtube" }]);
   // kick off any program logic or start listening to external events
   runProgramLogic();
 }
@@ -20,7 +20,7 @@ function collectionInitialize(name, propObj) {
   if (entries === null) {
     entries = db.addCollection(name, propObj);
   }
-  return entries ;
+  return entries;
 }
 
 
@@ -45,19 +45,19 @@ function runProgramLogic() {
 
         if (existingEntry) {
           // Update the existing entry
-          if (existingEntry.iconImageUrl !== video.talent.iconImageUrl){
+          if (existingEntry.iconImageUrl !== video.talent.iconImageUrl) {
             existingEntry.iconImageUrl = video.talent.iconImageUrl;
             talentsIconCollection.update(existingEntry);
-            console.log("updated",video.name)
+            console.log("updated", video.name)
           }
-          
+
         } else {
           // Insert a new entry
           talentsIconCollection.insert({
             name: video.name,
             iconImageUrl: video.talent.iconImageUrl
           });
-          console.log("inserted",video.name)
+          console.log("inserted", video.name)
         }
       });
 
