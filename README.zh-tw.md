@@ -3,6 +3,14 @@
 這是一個 Node.js 專案，用於從hololive的 API 取得藝人直播排程資料，整理成 iCalendar (.ics) 格式，並且建立一個http server來提供這些 .ics 文件。
 如此一來就可以使用各種支援iCalendar的月曆軟體來自動抓取行程，如: `Google Calendar`, `APPLE Calendar`, `VueMinder`, `Fantastical`, `Outlook`
 
+`Google Calendar`
+![Google Calendar1](READMEassets/g1.png)
+![Google Calendar2](READMEassets/g2.png)
+
+`VueMinder`
+![VueMinder1](READMEassets/v1.png)
+![VueMinder2](READMEassets/v2.png)
+
 目前提供:
     "holoAll"      //所有hololive藝人排程，包含hololive/holostar
 
