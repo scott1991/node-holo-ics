@@ -5,10 +5,12 @@
 This is a Node.js project designed to fetch streaming schedules of talents from the Hololive API, reformat the data into iCalendar (.ics) format, and provide these .ics files through an HTTP server. With this, you can automatically fetch schedules using various calendar software that supports iCalendar, such as `Google Calendar`, `APPLE Calendar`, `VueMinder`, `Fantastical`, `Outlook`.
 
 `Google Calendar`
+
 ![Google Calendar1](READMEassets/g1.png)
 ![Google Calendar2](READMEassets/g2.png)
 
 `VueMinder`
+
 ![VueMinder1](READMEassets/v1.png)
 ![VueMinder2](READMEassets/v2.png)
 
