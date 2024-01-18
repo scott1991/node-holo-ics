@@ -7,12 +7,6 @@ module.exports = {
       log_date_format: "YYYY-MM-DD HH:mm:ss",
       out_file: `../logs/${name}-out.log`,
       error_file: `../logs/${name}-err.log`,
-      logrotate: {
-        max_size: "3M",
-        retain: 5,
-        compress: false,
-        dateFormat: "MMDDHHmmss"
-      },
       env: {
         NODE_ENV: "production"
       }
