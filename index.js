@@ -20,7 +20,7 @@ let icsData = {
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
   const path = parsedUrl.pathname.toLowerCase(); // 將路徑轉換為小寫
-
+  // ex: hololiveenjp.ics
   if (path.endsWith('.ics')) {
     const channel = path.slice(1, -4); // 取得路徑中的頻道部分
     const propertyName = Object.keys(icsData).find(key => key.toLowerCase() === channel); // 尋找對應的屬性名稱

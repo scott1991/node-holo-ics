@@ -1,4 +1,5 @@
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz';
 import { getCollection } from './dbHelper.js';
 export function prepareEvents(videoList) {
   const talentsIconCollection = getCollection('talentsIcon');
@@ -30,8 +31,12 @@ export function prepareEvents(videoList) {
     categories = video.title.match(regex);
     const platformsCollection = getCollection('platforms');
     const platform = platformsCollection.findOne({ id: video.platformType }) ;
+
+    const zonedDate = parse(video.datetime, 'yyyy/MM/dd HH:mm:ss', new Date());
+    const utcDate = zonedTimeToUtc(zonedDate, 'Asia/Tokyo');
+
     const event = {
-      start: format(new Date(video.datetime), 'yyyy,MM,dd,HH,mm').split(',').map(Number),
+      start: format(utcDate, 'yyyy,MM,dd,HH,mm').split(',').map(Number),
       duration: { hours: 2 }, // we don't know how long. set to 2hr
       title: video.name, // will fill in summery
       description: video.title.replace(/\s/g, ' '), // use replace to make safe string
